@@ -1,0 +1,10 @@
+Sun Apr  3 01:36:41 2022: Device1: Temp=28 Himid=95 Illum=118
+Sun Apr  3 01:36:46 2022: Device1: Temp=23 Himid=49 Illum=99
+Sun Apr  3 01:36:50 2022: Device1: Temp=39 Himid=28 Illum=116
+Sun Apr  3 01:36:54 2022: Device1: Temp=27 Himid=99 Illum=149
+Sun Apr  3 01:36:57 2022: Device1: Temp=31 Himid=87 Illum=128
+Sun Apr  3 01:37:01 2022: Device2: heartbeat=84 steps=5415 cal=1663
+Sun Apr  3 01:37:05 2022: Device2: heartbeat=121 steps=4313 cal=3785
+Sun Apr  3 01:37:11 2022: Device2: heartbeat=90 steps=5920 cal=1913
+Sun Apr  3 01:37:15 2022: Device2: heartbeat=69 steps=5004 cal=3398
+Sun Apr  3 01:37:19 2022: Device2: heartbeat=87 steps=2604 cal=1305
