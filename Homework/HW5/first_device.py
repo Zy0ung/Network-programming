@@ -1,5 +1,5 @@
 from socket import *
-import sys
+
 import random
 
 BUF_SIZE = 1024
@@ -10,25 +10,24 @@ sock.listen(10)
 
 while True:
     conn, addr = sock.accept()
-    msg = conn.recv(BUF_SIZE).decode()
+    print('Connected ', addr)
 
-    if not msg:
-        sock.close()
-        continue
-
-    elif msg == 'quit':
-        print('client:', addr)
-        conn.close()
-        sys.exit()
-
-    elif msg == 'Request':
-        print('client:', addr)
-
+    msg = conn.recv(BUF_SIZE)
+    data = msg.decode()
+    
+    if data == 'Request':
         temp = random.randint(0, 40)
         humid = random.randint(0, 100)
         illum = random.randint(70, 150)
+        msg = f'Temp={temp} Himid={humid} Illum={illum}'
+        conn.send(msg.encode())
 
-        data = f'Temp={temp} Himid={humid} Illum={illum}'
-        conn.send(data.encode())
+    elif data == 'quit':
+        conn.close()
+        break
 
-    conn.close()
+    elif not msg:
+        break
+
+conn.close()
+sock.close()
