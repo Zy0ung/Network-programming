@@ -23,11 +23,31 @@ while True:
             continue
         else:
             break
+
+    if reTx > 3:
+        sock.sendto(b'fail', ('localhost', port))
+        sock.settimeout(None)
+        while True:
+            try:
+                ndata, naddr = sock.recvfrom(BUFFSIZE)
+            except timeout:
+                break
+            if(ndata.decode() == 'nack'):
+                print('NACK!')
+                break
+
+    
     sock.settimeout(None)
+
     while True:
         data, addr = sock.recvfrom(BUFFSIZE) 
-        if random.random() <= 0.5:
+        if data.decode() == 'fail':
+            sock.sendto(b'nack', ('localhost', port))
+            break
+
+        elif random.random() <= 0.5:
             continue
+        
         else:
             sock.sendto(b'ack', addr)
             print('<- ', data.decode())

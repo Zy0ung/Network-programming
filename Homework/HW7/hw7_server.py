@@ -10,7 +10,10 @@ sock.bind(('', port))
 while True:
     sock.settimeout(None) # socket의 블로킹 모드 timeout 설정
     while True: # None인 경우, 무한정 블로킹 됨
-        data, addr = sock.recvfrom(BUFFSIZE) 
+        data, addr = sock.recvfrom(BUFFSIZE)
+        if(data.decode() == 'fail'):
+            sock.sendto(b'nack', addr)
+            break
         if random.random() <= 0.5:
             continue
         else:
@@ -19,6 +22,7 @@ while True:
             break
     msg = input('-> ')
     reTx = 0
+    
     while reTx <= 3:
         resp = str(reTx) + ' ' + msg
         sock.sendto(resp.encode(), addr)
@@ -31,3 +35,15 @@ while True:
             continue
         else:
             break
+
+    if reTx > 3:
+        sock.sendto(b'fail', addr)
+        sock.settimeout(None)
+        while True:
+            try:
+                ndata, naddr = sock.recvfrom(BUFFSIZE)
+            except timeout:
+                break
+            if ndata.decode() == 'nack':
+                print('NACK!')
+                break
