@@ -14,7 +14,7 @@ def download_site(url):
         print(f"Read {len(response.content)} from {url}")
 
 def download_all_sites(sites):
-    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor: #스레드를 5개 생성 / ThreadPoolExecutor -> 스레드를 모아 놓음
         executor.map(download_site, sites)
 
 if __name__ == "__main__":
@@ -23,6 +23,6 @@ if __name__ == "__main__":
     "https://www.google.co.kr",
     ] * 80
     start_time = time.time()
-    download_all_sites(sites)
+    download_all_sites(sites) #스레드를 만들어 실행
     duration = time.time() - start_time
     print(f"Downloaded {len(sites)} in {duration} seconds")

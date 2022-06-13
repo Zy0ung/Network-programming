@@ -6,7 +6,7 @@ def download_site(url, session):
         print(f"Read {len(response.content)} from {url}")
 
 def download_all_sites(sites):
-    with requests.Session() as session:
+    with requests.Session() as session: #사용후 세션 파일을 닫아 줌.
         for url in sites:
             download_site(url, session)
 

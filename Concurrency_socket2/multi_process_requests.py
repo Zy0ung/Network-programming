@@ -19,8 +19,8 @@ def download_all_sites(sites):
 
 if __name__ == "__main__":
     sites = [
-    "https://homepage.sch.ac.kr",
-    "https://www.google.co.kr",
+        "https://homepage.sch.ac.kr"
+        "https://www.google.co.kr"
     ] * 80
     start_time = time.time()
     download_all_sites(sites)

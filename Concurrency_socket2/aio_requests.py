@@ -12,7 +12,7 @@ async def download_all_sites(sites):
         for url in sites:
             task = asyncio.create_task(download_site(session, url))
             tasks.append(task)
-        await asyncio.gather(*tasks)
+        await asyncio.gather(*tasks)#List를 인수로 줄 때 * 사용
 
 if __name__ == "__main__":
     sites = [
