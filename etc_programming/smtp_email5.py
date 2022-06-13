@@ -8,7 +8,11 @@ SMTP_PORT = 587
 
 sender = 'thdwldud8@gmail.com'
 recipient = 'thdwldud8@naver.com'
+<<<<<<< HEAD
 password = '앱비밀번호'
+=======
+password = 'tiqoomeyckfnsofp'
+>>>>>>> c1c5a5efa8d1cca97bb755d820d6236317fb4159
 
 zf_name = 'email.zip' # 압축 파일 이름 (현재 디렉토리에 생성됨)
 folder = 'test' # 현재 디렉토리에 있는 압축할 폴더

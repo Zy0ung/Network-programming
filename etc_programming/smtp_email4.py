@@ -6,7 +6,11 @@ SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
 
 sender = 'thdwldud8@gmail.com'
+<<<<<<< HEAD
 password = '앱비밀번호'
+=======
+password = 'tiqoomeyckfnsofp'
+>>>>>>> c1c5a5efa8d1cca97bb755d820d6236317fb4159
 
 # 엑셀 파일 읽어오기
 load_wb = load_workbook('email_list.xlsx')

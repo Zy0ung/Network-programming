@@ -3,7 +3,8 @@ from urllib import parse,request
 import requests, json
 import cv2
 
-REST_API_KEY = '본인 RestAPI KEY'
+REST_API_KEY = '3df39111cae1bd315b6413422770fd4f'
+
 
 class http_handler(BaseHTTPRequestHandler):
     def do_GET(self):
